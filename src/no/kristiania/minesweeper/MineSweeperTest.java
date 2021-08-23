@@ -24,11 +24,18 @@ public class MineSweeperTest {
     @Test
     void isShowMineCorrect() {
         assertArrayEquals(
-                new String[] {"*10"},
+                new String[] {"*00"},
                 displayField(new String[] {"*.."})
         );
     }
 
+    @Test
+    void isShowMineOnRows() {
+        assertArrayEquals(
+                new String[] {"*100"},
+                displayField(new String[] {"*..."})
+        );
+    }
 
     @Test
     void isShowCorrectColumns() {
@@ -43,7 +50,13 @@ public class MineSweeperTest {
         for (int row = 0; row < input.length; row++) {
             result[row] = "";
             for (int col = 0; col < input[row].length(); col++) {
-                result[row] += "0";
+                if (input[row].charAt(col) == '*') {
+                    result[row] += "*";
+                } else {
+                    result[row] += "0";
+                }
+
+
             }
         }
 
