@@ -22,6 +22,15 @@ public class MineSweeperTest {
     }
 
     @Test
+    void isShowMineCorrect() {
+        assertArrayEquals(
+                new String[] {"*10"},
+                displayField(new String[] {"*.."})
+        );
+    }
+
+
+    @Test
     void isShowCorrectColumns() {
         assertArrayEquals(
                 new String[] {"0000"},
@@ -31,8 +40,11 @@ public class MineSweeperTest {
 
     private String[] displayField(String[] input) {
         String[] result = new String[input.length];
-        for (int i = 0; i < input.length; i++) {
-            result[i] = "000";
+        for (int row = 0; row < input.length; row++) {
+            result[row] = "";
+            for (int col = 0; col < input[row].length(); col++) {
+                result[row] += "0";
+            }
         }
 
         return result;
