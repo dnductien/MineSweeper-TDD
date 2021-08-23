@@ -21,7 +21,20 @@ public class MineSweeperTest {
         );
     }
 
+    @Test
+    void isShowCorrectColumns() {
+        assertArrayEquals(
+                new String[] {"0000"},
+                displayField(new String[] {"...."})
+        );
+    }
+
     private String[] displayField(String[] input) {
-        return new String[] {"000"};
+        String[] result = new String[input.length];
+        for (int i = 0; i < input.length; i++) {
+            result[i] = "000";
+        }
+
+        return result;
     }
 }
